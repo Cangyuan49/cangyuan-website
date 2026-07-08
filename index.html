@@ -1,1261 +1,2616 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>沧元海洋 | 海洋科技成果转化领军企业</title>
+
   <meta name="description" content="沧元海洋科技专注AI驱动的海洋天然产物筛选、海洋噬菌体转化及多元海洋专利产业化落地，助力医药、健康、农业等行业跨越式创新。">
+
   <meta name="keywords" content="沧元海洋,海洋天然产物,AI筛药,海洋噬菌体,专利转化,海洋药物,抗衰老,分子对接,ADMET预测,海洋科技">
+
   <meta name="author" content="沧元海洋科技有限公司">
+
   <meta name="robots" content="index, follow">
+
   <meta property="og:title" content="沧元海洋 | 海洋科技成果转化领军企业">
+
   <meta property="og:description" content="AI驱动的海洋天然产物筛选、海洋噬菌体转化及海洋专利产业化落地">
+
   <meta property="og:type" content="website">
+
   <meta property="og:locale" content="zh_CN">
+
   <style>
+
     :root {
+
       --navy: #041a3f;
+
       --deep: #062b5e;
+
       --ocean: #0a4a8c;
+
       --bright: #0f7cc6;
+
       --teal: #0dbdc6;
+
       --gold: #c9a84c;
+
       --gold-light: #e8c97a;
+
       --white: #ffffff;
+
       --light: #f0f6ff;
+
       --gray: #8fa8c8;
+
       --text: #1a2d4a;
+
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
+
       font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+
       background: var(--navy);
+
       color: var(--white);
+
       overflow-x: hidden;
+
     }
+
+
 
     /* ── NAVBAR ── */
+
     nav {
+
       position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+
       background: rgba(4, 26, 63, 0.95);
+
       backdrop-filter: blur(12px);
+
       border-bottom: 1px solid rgba(13, 189, 198, 0.2);
+
       display: flex; align-items: center; justify-content: space-between;
+
       padding: 0 60px; height: 72px;
+
     }
+
     .logo {
+
       display: flex; align-items: center; gap: 12px;
+
       text-decoration: none;
+
     }
+
     .logo-icon {
+
       width: 44px; height: 44px;
+
       background: linear-gradient(135deg, var(--teal), var(--bright));
+
       border-radius: 10px;
+
       display: flex; align-items: center; justify-content: center;
+
       font-size: 22px;
+
     }
+
     .logo-text { display: flex; flex-direction: column; }
+
     .logo-cn { font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: 2px; }
+
     .logo-en { font-size: 10px; color: var(--teal); letter-spacing: 3px; text-transform: uppercase; }
+
     .nav-links { display: flex; gap: 36px; list-style: none; }
+
     .nav-links a {
+
       color: rgba(255,255,255,0.8); text-decoration: none;
+
       font-size: 14px; letter-spacing: 1px;
+
       transition: color 0.3s;
+
     }
+
     .nav-links a:hover { color: var(--teal); }
+
     .nav-cta {
+
       background: linear-gradient(135deg, var(--teal), var(--bright));
+
       color: var(--white); border: none; border-radius: 24px;
+
       padding: 10px 28px; font-size: 14px; cursor: pointer;
+
       font-weight: 600; letter-spacing: 1px;
+
       transition: opacity 0.3s, transform 0.2s;
+
     }
+
     .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 
+
+
+
+    /* ── MOBILE MENU ── */
+    .nav-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 40px; height: 40px; flex-direction: column;
+      justify-content: center; align-items: center; gap: 5px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px; transition: all 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(4, 26, 63, 0.98); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(13, 189, 198, 0.2);
+      padding: 16px 20px; z-index: 999; flex-direction: column; gap: 4px;
+    }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85); text-decoration: none; font-size: 16px;
+      padding: 12px 16px; border-radius: 10px; transition: background 0.3s;
+    }
+    .mobile-menu a:hover { background: rgba(13,189,198,0.1); color: var(--teal); }
+    .mobile-menu.open { display: flex; }
+
     /* ── HERO ── */
+
     .hero {
+
       min-height: 100vh;
+
       background:
+
         radial-gradient(ellipse at 20% 60%, rgba(13,189,198,0.12) 0%, transparent 55%),
+
         radial-gradient(ellipse at 80% 30%, rgba(15,124,198,0.15) 0%, transparent 50%),
+
         linear-gradient(160deg, var(--navy) 0%, #052050 50%, #031530 100%);
+
       display: flex; align-items: center;
+
       padding: 120px 60px 80px;
+
       position: relative; overflow: hidden;
+
     }
+
     .hero::before {
+
       content: '';
+
       position: absolute; inset: 0;
+
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='50%25' cy='50%25'%3E%3Cstop offset='0' stop-color='%230dbdc6' stop-opacity='.08'/%3E%3Cstop offset='1' stop-color='transparent'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='720' cy='700' r='600' fill='url(%23g1)'/%3E%3C/svg%3E") center bottom / cover no-repeat;
+
       pointer-events: none;
+
     }
+
     /* wave bottom */
+
     .hero::after {
+
       content: '';
+
       position: absolute; bottom: -2px; left: 0; right: 0; height: 120px;
+
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23041a3f' d='M0,80 C360,140 1080,0 1440,80 L1440,120 L0,120Z'/%3E%3C/svg%3E") bottom / cover;
+
       pointer-events: none;
+
     }
+
     /* Floating particles */
+
     .particles {
+
       position: absolute; inset: 0; pointer-events: none;
+
     }
+
     .particle {
+
       position: absolute;
+
       border-radius: 50%;
+
       background: var(--teal);
+
       opacity: 0.15;
+
       animation: float linear infinite;
+
     }
+
     @keyframes float {
+
       0% { transform: translateY(100vh) scale(0); opacity: 0; }
+
       10% { opacity: 0.15; }
+
       90% { opacity: 0.1; }
+
       100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+
     }
+
     .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
     .hero-badge {
+
       display: inline-flex; align-items: center; gap: 8px;
+
       background: rgba(13,189,198,0.12);
+
       border: 1px solid rgba(13,189,198,0.35);
+
       border-radius: 20px; padding: 6px 18px;
+
       font-size: 13px; color: var(--teal); letter-spacing: 1px;
+
       margin-bottom: 32px;
+
     }
+
     .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; animation: pulse 2s infinite; }
+
     @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
     .hero h1 {
+
       font-size: 58px; font-weight: 800; line-height: 1.2;
+
       margin-bottom: 16px; letter-spacing: 2px;
+
     }
+
     .hero h1 .highlight {
+
       background: linear-gradient(90deg, var(--teal), var(--gold-light));
+
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
       background-clip: text;
+
     }
+
     .hero-sub {
+
       font-size: 18px; color: rgba(255,255,255,0.65);
+
       line-height: 1.8; margin-bottom: 48px; max-width: 560px;
+
     }
+
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
     .btn-primary {
+
       background: linear-gradient(135deg, var(--teal) 0%, var(--bright) 100%);
+
       color: var(--white); padding: 16px 40px;
+
       border-radius: 32px; border: none; font-size: 16px;
+
       font-weight: 700; cursor: pointer; letter-spacing: 1px;
+
       box-shadow: 0 8px 32px rgba(13,189,198,0.35);
+
       transition: transform 0.2s, box-shadow 0.2s;
+
       text-decoration: none; display: inline-block;
+
     }
+
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(13,189,198,0.5); }
+
     .btn-outline {
+
       background: transparent;
+
       color: var(--white); padding: 15px 40px;
+
       border-radius: 32px; border: 1px solid rgba(255,255,255,0.3);
+
       font-size: 16px; cursor: pointer; letter-spacing: 1px;
+
       transition: border-color 0.3s, color 0.3s;
+
       text-decoration: none; display: inline-block;
+
     }
+
     .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
     .hero-stats {
+
       position: absolute; right: 60px; bottom: 140px;
+
       display: flex; flex-direction: column; gap: 20px;
+
       z-index: 2;
+
     }
+
     .stat-card {
+
       background: rgba(255,255,255,0.05);
+
       border: 1px solid rgba(13,189,198,0.2);
+
       border-radius: 16px; padding: 20px 28px;
+
       text-align: center;
+
       backdrop-filter: blur(8px);
+
       transition: transform 0.3s;
+
     }
+
     .stat-card:hover { transform: translateY(-4px); }
+
     .stat-num {
+
       font-size: 36px; font-weight: 800;
+
       background: linear-gradient(90deg, var(--teal), var(--gold-light));
+
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
       background-clip: text;
+
     }
+
     .stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; letter-spacing: 1px; }
 
+
+
     /* ── SECTION COMMON ── */
+
     section { padding: 100px 60px; }
+
     .section-tag {
+
       display: inline-block;
+
       background: rgba(13,189,198,0.1);
+
       border: 1px solid rgba(13,189,198,0.3);
+
       color: var(--teal); font-size: 12px; letter-spacing: 3px;
+
       padding: 5px 16px; border-radius: 12px; text-transform: uppercase;
+
       margin-bottom: 16px;
+
     }
+
     .section-title {
+
       font-size: 40px; font-weight: 800; margin-bottom: 16px; letter-spacing: 1px;
+
     }
+
     .section-desc {
+
       font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8;
+
       max-width: 600px;
+
     }
+
     .section-header { margin-bottom: 60px; }
+
     .center { text-align: center; }
+
     .center .section-desc { margin: 0 auto; }
+
     .gold { color: var(--gold-light); }
 
+
+
     /* ── ABOUT / INTRO ── */
+
     #about {
+
       background: linear-gradient(180deg, var(--navy) 0%, #052050 100%);
+
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+
     }
+
     .about-visual {
+
       position: relative; height: 460px;
+
     }
+
     .about-glow {
+
       position: absolute; top: 50%; left: 50%;
+
       transform: translate(-50%, -50%);
+
       width: 320px; height: 320px;
+
       border-radius: 50%;
+
       background: radial-gradient(circle, rgba(13,189,198,0.18) 0%, transparent 70%);
+
     }
+
     .about-circle {
+
       position: absolute; top: 50%; left: 50%;
+
       transform: translate(-50%, -50%);
+
       width: 260px; height: 260px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(13,189,198,0.25);
+
       display: flex; align-items: center; justify-content: center;
+
     }
+
     .about-inner {
+
       width: 180px; height: 180px; border-radius: 50%;
+
       background: linear-gradient(135deg, rgba(13,189,198,0.2), rgba(15,124,198,0.3));
+
       border: 1px solid rgba(13,189,198,0.4);
+
       display: flex; align-items: center; justify-content: center;
+
       font-size: 64px;
+
     }
+
     .orbit {
+
       position: absolute; width: 340px; height: 340px;
+
       border: 1px dashed rgba(13,189,198,0.2);
+
       border-radius: 50%;
+
       top: 50%; left: 50%; transform: translate(-50%,-50%);
+
       animation: spin 20s linear infinite;
+
     }
+
     .orbit-dot {
+
       position: absolute; top: -6px; left: calc(50% - 6px);
+
       width: 12px; height: 12px; border-radius: 50%;
+
       background: var(--teal);
+
       box-shadow: 0 0 12px var(--teal);
+
     }
+
     @keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
     .orbit2 {
+
       position: absolute; width: 420px; height: 420px;
+
       border: 1px dashed rgba(201,168,76,0.15);
+
       border-radius: 50%;
+
       top: 50%; left: 50%; transform: translate(-50%,-50%);
+
       animation: spin 30s linear infinite reverse;
+
     }
+
     .orbit2-dot {
+
       position: absolute; bottom: -6px; left: calc(50% - 6px);
+
       width: 10px; height: 10px; border-radius: 50%;
+
       background: var(--gold);
+
       box-shadow: 0 0 10px var(--gold);
+
     }
+
     .about-tags {
+
       position: absolute;
+
       display: flex; flex-direction: column; gap: 10px;
+
     }
+
     .about-tags.left { left: -10px; top: 50%; transform: translateY(-50%); }
+
     .about-tags.right { right: -10px; top: 50%; transform: translateY(-50%); }
+
     .about-tag {
+
       background: rgba(6, 43, 94, 0.9);
+
       border: 1px solid rgba(13,189,198,0.3);
+
       border-radius: 10px; padding: 8px 14px;
+
       font-size: 12px; color: var(--teal); white-space: nowrap;
+
     }
+
     .about-text p { 
+
       color: rgba(255,255,255,0.7); line-height: 1.9;
+
       font-size: 15px; margin-bottom: 20px;
+
     }
+
     .about-text .highlights {
+
       display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;
+
     }
+
     .highlight-item {
+
       background: rgba(255,255,255,0.04);
+
       border: 1px solid rgba(13,189,198,0.15);
+
       border-radius: 12px; padding: 16px;
+
     }
+
     .highlight-item .icon { font-size: 24px; margin-bottom: 8px; }
+
     .highlight-item .label { font-size: 13px; color: var(--gray); }
+
     .highlight-item .val { font-size: 15px; font-weight: 600; color: var(--white); }
 
+
+
     /* ── SERVICES ── */
+
     #services {
+
       background: #031a3d;
+
     }
+
     .services-grid {
+
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px;
+
     }
+
     .service-card {
+
       background: linear-gradient(145deg, rgba(6,43,94,0.8), rgba(4,26,63,0.9));
+
       border: 1px solid rgba(13,189,198,0.15);
+
       border-radius: 20px; padding: 40px 32px;
+
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+
       position: relative; overflow: hidden;
+
     }
+
     .service-card::before {
+
       content: '';
+
       position: absolute; top: 0; left: 0; right: 0; height: 3px;
+
       background: linear-gradient(90deg, var(--teal), var(--bright));
+
       opacity: 0; transition: opacity 0.3s;
+
     }
+
     .service-card:hover {
+
       transform: translateY(-8px);
+
       border-color: rgba(13,189,198,0.4);
+
       box-shadow: 0 20px 60px rgba(13,189,198,0.1);
+
     }
+
     .service-card:hover::before { opacity: 1; }
+
     .service-icon {
+
       width: 64px; height: 64px; border-radius: 16px;
+
       background: linear-gradient(135deg, rgba(13,189,198,0.2), rgba(15,124,198,0.15));
+
       border: 1px solid rgba(13,189,198,0.3);
+
       display: flex; align-items: center; justify-content: center;
+
       font-size: 30px; margin-bottom: 24px;
+
     }
+
     .service-card h3 {
+
       font-size: 20px; font-weight: 700; margin-bottom: 12px; letter-spacing: 1px;
+
     }
+
     .service-card p {
+
       font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 24px;
+
     }
+
     .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
     .stag {
+
       background: rgba(13,189,198,0.1);
+
       border: 1px solid rgba(13,189,198,0.25);
+
       color: var(--teal); font-size: 11px; padding: 4px 10px;
+
       border-radius: 8px; letter-spacing: 0.5px;
+
     }
+
     .service-card.featured {
+
       background: linear-gradient(145deg, rgba(13,189,198,0.12), rgba(15,124,198,0.1));
+
       border-color: rgba(13,189,198,0.4);
+
     }
+
     .service-card.featured::before { opacity: 1; }
+
     .badge-featured {
+
       position: absolute; top: 20px; right: 20px;
+
       background: linear-gradient(135deg, var(--teal), var(--bright));
+
       color: white; font-size: 11px; font-weight: 700;
+
       padding: 4px 12px; border-radius: 10px; letter-spacing: 1px;
+
     }
+
+
 
     /* ── PATENTS ── */
+
     #patents {
+
       background: linear-gradient(180deg, #031a3d 0%, var(--navy) 100%);
+
     }
+
     .patents-grid {
+
       display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 60px;
+
     }
+
     .patent-card {
+
       background: rgba(255,255,255,0.03);
+
       border: 1px solid rgba(201,168,76,0.2);
+
       border-radius: 16px; padding: 28px 32px;
+
       display: flex; align-items: flex-start; gap: 20px;
+
       transition: transform 0.3s, border-color 0.3s;
+
     }
+
     .patent-card:hover { transform: translateX(4px); border-color: rgba(201,168,76,0.5); }
+
     .patent-num {
+
       background: linear-gradient(135deg, var(--gold), var(--gold-light));
+
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
       background-clip: text;
+
       font-size: 28px; font-weight: 800; line-height: 1; min-width: 40px;
+
     }
+
     .patent-info h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+
     .patent-info p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
     .patent-info .meta {
+
       margin-top: 12px; display: flex; gap: 12px;
+
     }
+
     .meta-tag {
+
       font-size: 11px; padding: 3px 10px; border-radius: 6px;
+
       background: rgba(201,168,76,0.1);
+
       border: 1px solid rgba(201,168,76,0.25);
+
       color: var(--gold-light);
+
     }
+
+
 
     /* ── WHY US ── */
+
     #why {
+
       background: var(--navy);
+
     }
+
     .why-grid {
+
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px;
+
     }
+
     .why-card {
+
       text-align: center; padding: 36px 24px;
+
       background: rgba(255,255,255,0.03);
+
       border: 1px solid rgba(255,255,255,0.07);
+
       border-radius: 20px;
+
       transition: transform 0.3s, background 0.3s;
+
     }
+
     .why-card:hover { transform: translateY(-6px); background: rgba(13,189,198,0.05); }
+
     .why-icon { font-size: 40px; margin-bottom: 16px; }
+
     .why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+
     .why-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
+
+
     /* ── PROCESS ── */
+
     #process {
+
       background: linear-gradient(180deg, var(--navy) 0%, #031a3d 100%);
+
     }
+
     .process-steps {
+
       display: flex; gap: 0; margin-top: 60px; position: relative;
+
     }
+
     .process-steps::before {
+
       content: '';
+
       position: absolute; top: 40px; left: calc(10% + 20px); right: calc(10% + 20px);
+
       height: 1px;
+
       background: linear-gradient(90deg, var(--teal), var(--bright), var(--gold));
+
       opacity: 0.4;
+
     }
+
     .step {
+
       flex: 1; text-align: center; padding: 0 16px;
+
     }
+
     .step-circle {
+
       width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 24px;
+
       background: linear-gradient(135deg, rgba(13,189,198,0.2), rgba(15,124,198,0.15));
+
       border: 2px solid rgba(13,189,198,0.4);
+
       display: flex; align-items: center; justify-content: center;
+
       font-size: 32px; position: relative; z-index: 1;
+
       transition: transform 0.3s, box-shadow 0.3s;
+
     }
+
     .step:hover .step-circle {
+
       transform: scale(1.1);
+
       box-shadow: 0 0 30px rgba(13,189,198,0.3);
+
     }
+
     .step h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+
     .step p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
+
+
     /* ── CONTACT ── */
+
     #contact {
+
       background:
+
         radial-gradient(ellipse at 30% 50%, rgba(13,189,198,0.1) 0%, transparent 50%),
+
         linear-gradient(180deg, #031a3d 0%, var(--navy) 100%);
+
     }
+
     .contact-wrapper {
+
       display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+
     }
+
     .contact-info .info-item {
+
       display: flex; align-items: flex-start; gap: 16px; margin-bottom: 32px;
+
     }
+
     .info-icon {
+
       width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+
       background: rgba(13,189,198,0.1);
+
       border: 1px solid rgba(13,189,198,0.25);
+
       display: flex; align-items: center; justify-content: center;
+
       font-size: 20px;
+
     }
+
     .info-label { font-size: 12px; color: var(--gray); margin-bottom: 4px; letter-spacing: 1px; }
+
     .info-val { font-size: 18px; font-weight: 700; color: var(--white); }
+
     .info-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
     .qr-card {
+
       background: rgba(255,255,255,0.9);
+
       border-radius: 16px; padding: 20px;
+
       display: inline-flex; flex-direction: column; align-items: center; gap: 12px;
+
       margin-top: 8px;
+
     }
+
     .qr-placeholder {
+
       width: 120px; height: 120px;
+
       background: linear-gradient(135deg, #0a4a8c 0%, #041a3f 100%);
+
       border-radius: 8px;
+
       display: flex; flex-direction: column; align-items: center; justify-content: center;
+
       gap: 6px; padding: 12px;
+
     }
+
     .qr-inner { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; width: 80px; }
+
     .qr-cell { height: 14px; border-radius: 2px; }
+
     .qr-dark { background: #fff; }
+
     .qr-light { background: transparent; }
+
     .qr-label { font-size: 12px; color: var(--text); font-weight: 600; text-align: center; }
+
     .contact-form {
+
       background: rgba(255,255,255,0.04);
+
       border: 1px solid rgba(13,189,198,0.15);
+
       border-radius: 24px; padding: 40px;
+
     }
+
     .contact-form h3 { font-size: 22px; font-weight: 700; margin-bottom: 28px; }
+
     .form-group { margin-bottom: 20px; }
+
     .form-group label { display: block; font-size: 13px; color: var(--gray); margin-bottom: 8px; letter-spacing: 0.5px; }
+
     .form-group input, .form-group select, .form-group textarea {
+
       width: 100%; padding: 14px 18px;
+
       background: rgba(255,255,255,0.05);
+
       border: 1px solid rgba(255,255,255,0.1);
+
       border-radius: 12px; color: var(--white);
+
       font-size: 14px; outline: none;
+
       transition: border-color 0.3s;
+
       font-family: inherit;
+
     }
+
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+
       border-color: var(--teal);
+
     }
+
     .form-group select { appearance: none; cursor: pointer; }
+
     .form-group select option { background: var(--deep); }
+
     .form-group textarea { height: 100px; resize: vertical; }
+
     .form-submit {
+
       width: 100%;
+
       background: linear-gradient(135deg, var(--teal), var(--bright));
+
       color: white; border: none; border-radius: 12px;
+
       padding: 16px; font-size: 16px; font-weight: 700;
+
       cursor: pointer; letter-spacing: 1px;
+
       transition: opacity 0.3s, transform 0.2s;
+
       margin-top: 8px;
+
     }
+
     .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
 
+
+
     /* ── TRUST BAND ── */
+
     .trust-band {
+
       background: rgba(6,43,94,0.5);
+
       border-top: 1px solid rgba(13,189,198,0.1);
+
       border-bottom: 1px solid rgba(13,189,198,0.1);
+
       padding: 40px 60px;
+
     }
+
     .trust-label {
+
       text-align: center; font-size: 12px; color: var(--gray);
+
       letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px;
+
     }
+
     .trust-logos {
+
       display: flex; align-items: center; justify-content: center;
+
       gap: 48px; flex-wrap: wrap;
+
     }
+
     .trust-logo {
+
       font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.4);
+
       letter-spacing: 2px; text-transform: uppercase;
+
       padding: 8px 20px; border: 1px solid rgba(255,255,255,0.1);
+
       border-radius: 8px; transition: color 0.3s, border-color 0.3s;
+
     }
+
     .trust-logo:hover { color: rgba(255,255,255,0.7); border-color: rgba(13,189,198,0.3); }
 
+
+
     /* ── FOOTER ── */
+
     footer {
+
       background: #020f24;
+
       padding: 60px; border-top: 1px solid rgba(255,255,255,0.05);
+
     }
+
     .footer-grid {
+
       display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px;
+
     }
+
     .footer-brand p {
+
       font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8; margin-top: 16px; max-width: 300px;
+
     }
+
     .footer-col h4 { font-size: 14px; font-weight: 700; letter-spacing: 1px; margin-bottom: 20px; color: var(--white); }
+
     .footer-col ul { list-style: none; }
+
     .footer-col li { margin-bottom: 12px; }
+
     .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+
     .footer-col a:hover { color: var(--teal); }
+
     .footer-bottom {
+
       border-top: 1px solid rgba(255,255,255,0.06);
+
       padding-top: 28px;
+
       display: flex; align-items: center; justify-content: space-between;
+
     }
+
     .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
     .footer-icp { font-size: 12px; color: rgba(255,255,255,0.25); }
 
+
+
     /* ── SCROLL-IN ANIMATION ── */
+
     .fade-up {
+
       opacity: 0; transform: translateY(30px);
+
       transition: opacity 0.7s ease, transform 0.7s ease;
+
     }
+
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      nav { padding: 0 32px; }
-      .hero { padding: 120px 32px 80px; }
-      .hero h1 { font-size: 40px; }
+      nav { padding: 0 24px; }
+      .hero { padding: 100px 24px 60px; min-height: auto; }
+      .hero h1 { font-size: 36px; }
+      .hero-sub { font-size: 15px; margin-bottom: 32px; }
       .hero-stats { display: none; }
-      #about { grid-template-columns: 1fr; padding: 80px 32px; }
-      .about-visual { height: 300px; }
-      section { padding: 80px 32px; }
-      .services-grid { grid-template-columns: 1fr; }
+      .hero-btns { gap: 12px; }
+      .btn-primary, .btn-outline { padding: 14px 28px; font-size: 14px; }
+      #about { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+      .about-visual { height: 280px; }
+      .about-tags { display: none; }
+      section { padding: 60px 24px; }
+      .section-title { font-size: 32px; }
+      .section-header { margin-bottom: 40px; }
+      .services-grid, .services-grid-2 { grid-template-columns: 1fr !important; gap: 20px; }
+      .service-card { padding: 28px 24px; }
       .patents-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .patent-card { padding: 20px 24px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .contact-form { padding: 28px 24px; }
+      .trust-band { padding: 32px 24px; }
+      .trust-logos { gap: 16px; }
+      footer { padding: 40px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
+      nav { padding: 0 16px; height: 60px; }
+      .logo-cn { font-size: 18px; }
+      .logo-en { font-size: 9px; }
+      .logo-icon { width: 36px; height: 36px; font-size: 18px; }
       .nav-links { display: none; }
-      .hero h1 { font-size: 32px; }
-      .section-title { font-size: 28px; }
-      .why-grid { grid-template-columns: 1fr; }
-      .process-steps { flex-direction: column; gap: 32px; }
+      .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .mobile-menu { top: 60px; }
+      .hero { padding: 90px 20px 50px; min-height: auto; }
+      .hero h1 { font-size: 28px; letter-spacing: 1px; }
+      .hero-sub { font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+      .hero-badge { font-size: 12px; padding: 5px 14px; margin-bottom: 24px; }
+      .hero-btns { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 14px 24px; font-size: 15px; }
+      section { padding: 50px 20px; }
+      .section-title { font-size: 24px; }
+      .section-desc { font-size: 14px; }
+      .section-tag { font-size: 11px; letter-spacing: 2px; }
+      .section-header { margin-bottom: 32px; }
+      #about { padding: 50px 20px; gap: 32px; }
+      .about-visual { height: 240px; }
+      .about-circle { width: 200px; height: 200px; }
+      .about-inner { width: 140px; height: 140px; font-size: 48px; }
+      .orbit { width: 260px; height: 260px; }
+      .orbit2 { width: 320px; height: 320px; }
+      .about-text .highlights { grid-template-columns: 1fr; gap: 12px; }
+      .services-grid, .services-grid-2 { grid-template-columns: 1fr !important; gap: 16px; margin-top: 32px !important; }
+      .service-card { padding: 24px 20px; }
+      .service-icon { width: 52px; height: 52px; font-size: 24px; margin-bottom: 16px; }
+      .service-card h3 { font-size: 17px; }
+      .service-card p { font-size: 13px; line-height: 1.7; }
+      .patents-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
+      .patent-card { padding: 20px; gap: 14px; }
+      .patent-num { font-size: 24px; }
+      .patent-info h4 { font-size: 15px; }
+      .patent-info p { font-size: 12px; }
+      .why-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+      .why-card { padding: 28px 20px; }
+      .process-steps { flex-direction: column; gap: 32px; margin-top: 32px; }
       .process-steps::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .step-circle { width: 64px; height: 64px; font-size: 26px; }
+      .step h4 { font-size: 15px; }
+      .step p { font-size: 12px; }
+      .trust-band { padding: 28px 20px; }
+      .trust-label { font-size: 11px; letter-spacing: 2px; margin-bottom: 20px; }
+      .trust-logos { gap: 10px; }
+      .trust-logo { font-size: 11px; padding: 6px 14px; letter-spacing: 1px; }
+      .contact-wrapper { grid-template-columns: 1fr; gap: 32px; }
+      .contact-form { padding: 24px 20px; border-radius: 16px; }
+      .contact-form h3 { font-size: 18px; margin-bottom: 20px; }
+      .info-val { font-size: 16px; }
+      .info-icon { width: 40px; height: 40px; font-size: 16px; }
+      footer { padding: 36px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; padding-top: 24px; }
     }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 22px; }
+      .hero-sub { font-size: 13px; }
+      .section-title { font-size: 20px; }
+      .logo-cn { font-size: 16px; }
+      .logo-en { display: none; }
+      .about-visual { height: 200px; }
+      .about-circle { width: 160px; height: 160px; }
+      .about-inner { width: 110px; height: 110px; font-size: 36px; }
+      .orbit { width: 200px; height: 200px; }
+      .orbit2 { width: 250px; height: 250px; }
+      .service-card { padding: 20px 16px; }
+      .service-icon { width: 44px; height: 44px; font-size: 20px; }
+      .service-card h3 { font-size: 15px; }
+      .contact-form { padding: 20px 16px; }
+      .form-group input, .form-group select, .form-group textarea { padding: 12px 14px; font-size: 13px; }
+    }
+
   </style>
+
 </head>
+
 <body>
 
+
+
   <!-- NAV -->
+
   <nav>
+
     <a class="logo" href="#">
+
       <div class="logo-icon">🌊</div>
+
       <div class="logo-text">
+
         <span class="logo-cn">沧元海洋</span>
+
         <span class="logo-en">Cangyuan Marine Tech</span>
+
       </div>
+
     </a>
+
     <ul class="nav-links">
+
       <li><a href="#about">关于我们</a></li>
+
       <li><a href="#services">核心业务</a></li>
+
       <li><a href="#patents">专利转化</a></li>
+
       <li><a href="#why">为何选择我们</a></li>
+
       <li><a href="#contact">联系我们</a></li>
+
     </ul>
+
     <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">立即咨询</button>
+
   </nav>
 
+
+
   <!-- HERO -->
+
   <section class="hero" id="home">
+
     <div class="particles" id="particles"></div>
+
     <div class="hero-content">
+
       <div class="hero-badge">
+
         <span></span>
+
         海洋科技成果转化领军者
+
       </div>
+
       <h1>探索深蓝<br><span class="highlight">赋能产业未来</span></h1>
+
       <p class="hero-sub">
+
         沧元海洋以前沿海洋科学为基础，专注AI驱动的海洋天然产物筛选、海洋噬菌体转化及多元海洋专利的产业化落地，助力医药、健康、农业等行业实现跨越式创新。
+
       </p>
+
       <div class="hero-btns">
+
         <a href="#services" class="btn-primary">探索核心业务</a>
+
         <a href="#contact" class="btn-outline">预约专家咨询</a>
+
       </div>
+
     </div>
+
     <div class="hero-stats">
+
       <div class="stat-card">
+
         <div class="stat-num">若干</div>
+
         <div class="stat-label">海洋专利储备</div>
+
       </div>
+
       <div class="stat-card">
+
         <div class="stat-num">3W+</div>
+
         <div class="stat-label">天然化合物库</div>
+
       </div>
+
       <div class="stat-card">
+
         <div class="stat-num">98%</div>
+
         <div class="stat-label">客户满意度</div>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- TRUST BAND -->
+
   <div class="trust-band">
+
     <p class="trust-label">合作伙伴与权威认证</p>
+
     <div class="trust-logos">
+
       <span class="trust-logo">中科院海洋所</span>
+
       <span class="trust-logo">国家海洋局认证</span>
+
       <span class="trust-logo">ISO 9001</span>
+
       <span class="trust-logo">海洋药物研究院</span>
+
       <span class="trust-logo">GMP认证实验室</span>
+
     </div>
+
   </div>
 
+
+
   <!-- ABOUT -->
+
   <section id="about">
+
     <div class="about-visual">
+
       <div class="about-glow"></div>
+
       <div class="orbit"><div class="orbit-dot"></div></div>
+
       <div class="orbit2"><div class="orbit2-dot"></div></div>
+
       <div class="about-circle">
+
         <div class="about-inner">🔬</div>
+
       </div>
+
       <div class="about-tags left">
+
         <div class="about-tag">🧬 AI分子模拟</div>
+
         <div class="about-tag">🐟 海洋天然产物</div>
+
         <div class="about-tag">🦠 噬菌体技术</div>
+
       </div>
+
       <div class="about-tags right">
+
         <div class="about-tag">📋 专利转化</div>
+
         <div class="about-tag">🔭 前沿科研</div>
+
         <div class="about-tag">🤝 产业赋能</div>
+
       </div>
+
     </div>
+
     <div class="about-text">
+
       <div class="section-tag">关于沧元</div>
+
       <h2 class="section-title">以科学为锚<br><span class="gold">深耕蓝色经济</span></h2>
+
       <p>
+
         沧元海洋科技成立于深耕海洋资源领域，汇聚海洋生物学、药物化学、计算生物学及AI工程领域的顶尖人才，致力于将深海宝藏转化为切实可用的产业价值。
+
       </p>
+
       <p>
+
         我们构建了涵盖海洋天然产物、海洋噬菌体、海洋功能蛋白及多元生物活性物质的系统性技术转化体系，形成从基础科研→专利布局→成果转化→产业落地的完整价值链。
+
       </p>
+
       <div class="highlights">
+
         <div class="highlight-item">
+
           <div class="icon">🏛️</div>
+
           <div class="label">科研背景</div>
+
           <div class="val">顶尖海洋科研院所支撑</div>
+
         </div>
+
         <div class="highlight-item">
+
           <div class="icon">⚡</div>
+
           <div class="label">AI赋能</div>
+
           <div class="val">虚拟筛选效率提升10倍</div>
+
         </div>
+
         <div class="highlight-item">
+
           <div class="icon">🌍</div>
+
           <div class="label">专利范围</div>
+
           <div class="val">500+ 核心专利储备</div>
+
         </div>
+
         <div class="highlight-item">
+
           <div class="icon">🤝</div>
+
           <div class="label">转化经验</div>
+
           <div class="val">覆盖医药、健康、农业</div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- SERVICES -->
+
   <section id="services">
+
     <div class="section-header center fade-up">
+
       <div class="section-tag">核心业务</div>
+
       <h2 class="section-title">三大技术转化方向</h2>
+
       <p class="section-desc">依托深厚的海洋科学积累与前沿AI技术，提供全链路的专业成果转化服务</p>
+
     </div>
+
     <div class="services-grid fade-up">
+
       <!-- AI筛选 -->
+
       <div class="service-card featured">
+
         <div class="badge-featured">明星业务</div>
+
         <div class="service-icon">🤖</div>
+
         <h3>海洋天然产物 AI 筛选</h3>
+
         <p>
+
           运用AI虚拟筛选技术，基于3万+海洋天然化合物专属数据库，对靶点进行高精度分子对接与ADMET预测，将传统筛选周期从3-5年压缩至数月，为医药研发、功能食品、抗衰老等领域提供差异化原料支撑。
+
         </p>
+
         <div class="service-tags">
+
           <span class="stag">靶向筛选</span>
+
           <span class="stag">ADMET预测</span>
+
           <span class="stag">分子对接</span>
+
           <span class="stag">抗衰老</span>
+
           <span class="stag">天然活性成分</span>
+
         </div>
+
       </div>
+
       <!-- 噬菌体 -->
+
       <div class="service-card">
+
         <div class="service-icon">🦠</div>
+
         <h3>海洋噬菌体技术转化</h3>
+
         <p>
+
           深海来源的噬菌体具有独特的宿主特异性与环境适应能力，沧元海洋将其应用于抗耐药菌治疗、水产养殖疾病防控及微生物生态调控，开拓噬菌体疗法的产业化新路径。
+
         </p>
+
         <div class="service-tags">
+
           <span class="stag">噬菌体疗法</span>
+
           <span class="stag">水产防控</span>
+
           <span class="stag">耐药菌对抗</span>
+
           <span class="stag">生态调控</span>
+
         </div>
+
       </div>
+
       <!-- 专利转化 -->
+
       <div class="service-card">
+
         <div class="service-icon">📜</div>
+
         <h3>海洋专利技术转让</h3>
+
         <p>
+
           汇聚覆盖海洋功能蛋白、生物活性多糖、海洋酶制剂、海洋抗肿瘤化合物等多个细分领域的500余项核心专利，提供专利评估、许可授权、合作开发及全流程转让服务。
+
         </p>
+
         <div class="service-tags">
+
           <span class="stag">功能蛋白</span>
+
           <span class="stag">活性多糖</span>
+
           <span class="stag">海洋酶制剂</span>
+
           <span class="stag">专利许可</span>
+
           <span class="stag">技术转让</span>
+
         </div>
+
       </div>
+
     </div>
+
     <!-- Additional service rows -->
-    <div class="services-grid fade-up" style="margin-top:28px; grid-template-columns: repeat(3,1fr);">
+
+    <div class="services-grid services-grid-2 fade-up" style="margin-top:28px;">
+
       <div class="service-card">
+
         <div class="service-icon">💊</div>
+
         <h3>海洋药物开发支持</h3>
+
         <p>提供从化合物发现到候选药物确定的全程技术支持，帮助制药企业在海洋领域快速建立新药研发管线。</p>
+
         <div class="service-tags">
+
           <span class="stag">新药研发</span>
+
           <span class="stag">临床前研究</span>
+
           <span class="stag">IND申报</span>
+
         </div>
+
       </div>
+
       <div class="service-card">
+
         <div class="service-icon">🌿</div>
+
         <h3>海洋功能性原料供应</h3>
+
         <p>为保健品、功能食品、化妆品企业提供经AI筛选认证的高纯度海洋功能性原料，助力产品差异化竞争。</p>
+
         <div class="service-tags">
+
           <span class="stag">保健品</span>
+
           <span class="stag">功能食品</span>
+
           <span class="stag">化妆品成分</span>
+
         </div>
+
       </div>
+
       <div class="service-card">
+
         <div class="service-icon">🔬</div>
+
         <h3>定制化科研合作</h3>
+
         <p>与高校、科研院所及企业开展产学研合作，提供定制化的海洋生物资源挖掘与技术攻关解决方案。</p>
+
         <div class="service-tags">
+
           <span class="stag">产学研合作</span>
+
           <span class="stag">课题立项</span>
+
           <span class="stag">成果孵化</span>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- PATENTS -->
+
   <section id="patents">
+
     <div class="section-header fade-up">
+
       <div class="section-tag">专利储备</div>
+
       <h2 class="section-title">4+ 核心专利<br><span class="gold">不断覆盖海洋科技各领域</span></h2>
+
       <p class="section-desc">预计从海洋微生物到大型藻类，从分子活性到宏观生态，沧元海洋全力构建国内最系统化的海洋科技专利矩阵之一</p>
+
     </div>
+
     <div class="patents-grid fade-up">
+
       <div class="patent-card">
+
         <div class="patent-num">01</div>
+
         <div class="patent-info">
+
           <h4>海洋天然产物AI靶向筛选平台系统</h4>
+
           <p>用于治疗勃起功能障碍的药物及其应用。</p>
+
           <div class="meta">
+
             <span class="meta-tag">发明专利</span>
+
             <span class="meta-tag">AI技术相关</span>
+
             <span class="meta-tag">可转让</span>
+
           </div>
+
         </div>
+
       </div>
+
       <div class="patent-card">
+
         <div class="patent-num">02</div>
+
         <div class="patent-info">
+
           <h4>海洋天然产物AI靶向筛选平台系统</h4>
+
           <p>一种海绵体纤维化疾病模型及其构建试剂和构建方法。</p>
+
           <div class="meta">
+
             <span class="meta-tag">发明专利</span>
+
             <span class="meta-tag">AI技术相关</span>
+
             <span class="meta-tag">可许可</span>
+
           </div>
+
         </div>
+
       </div>
+
       
+
     <div style="text-align:center; margin-top:48px;">
+
       <a href="#contact" class="btn-outline" style="display:inline-block;">查看全部专利库 →</a>
+
     </div>
+
   </section>
+
+
 
   <!-- WHY US -->
+
   <section id="why">
+
     <div class="section-header center fade-up">
+
       <div class="section-tag">核心优势</div>
+
       <h2 class="section-title">为什么选择<span class="gold">沧元海洋</span></h2>
+
       <p class="section-desc">专业、可靠、高效——我们用结果说话</p>
+
     </div>
+
     <div class="why-grid fade-up">
+
       <div class="why-card">
+
         <div class="why-icon">🧬</div>
+
         <h3>独家数据库</h3>
+
         <p>自建3万+海洋天然化合物三维结构数据库，覆盖深海、潮间带、极地等特殊生境来源，数据质量领先行业。</p>
+
       </div>
+
       <div class="why-card">
+
         <div class="why-icon">⚡</div>
+
         <h3>AI极速筛选</h3>
+
         <p>AI虚拟筛选将初筛周期从3-5年压缩至数月，成本降低50%-70%，大幅提升研发决策速度与资源利用效率。</p>
+
       </div>
+
       <div class="why-card">
+
         <div class="why-icon">🏆</div>
+
         <h3>顶尖团队</h3>
+
         <p>核心团队汇聚来自中科院、国内顶尖高校及跨国药企的资深科学家，具备从基础研究到产业化的全链路能力。</p>
+
       </div>
+
       <div class="why-card">
+
         <div class="why-icon">🔄</div>
+
         <h3>全链路服务</h3>
+
         <p>从专利评估、技术许可、联合研发到成果落地，提供一站式全链路转化服务，最大化降低合作方的时间和资金成本。</p>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- PROCESS -->
+
   <section id="process">
+
     <div class="section-header center fade-up">
+
       <div class="section-tag">合作流程</div>
+
       <h2 class="section-title">五步推进<br><span class="gold">高效合作无忧</span></h2>
+
     </div>
+
     <div class="process-steps fade-up">
+
       <div class="step">
+
         <div class="step-circle">📋</div>
+
         <h4>需求沟通</h4>
+
         <p>深入了解您的技术需求与商业目标，匹配最合适的海洋科技方案</p>
+
       </div>
+
       <div class="step">
+
         <div class="step-circle">🔍</div>
+
         <h4>方案定制</h4>
+
         <p>依据需求定制专属技术路线，明确关键里程碑与预期产出</p>
+
       </div>
+
       <div class="step">
+
         <div class="step-circle">🤝</div>
+
         <h4>协议签订</h4>
+
         <p>签订技术许可或合作开发协议，明确权责，保障各方权益</p>
+
       </div>
+
       <div class="step">
+
         <div class="step-circle">⚗️</div>
+
         <h4>技术执行</h4>
+
         <p>专业团队全力推进项目，定期汇报进展，透明高效交付成果</p>
+
       </div>
+
       <div class="step">
+
         <div class="step-circle">🚀</div>
+
         <h4>落地支持</h4>
+
         <p>提供产业化落地全程辅导，确保技术从实验室走向市场</p>
+
       </div>
+
     </div>
+
   </section>
+
+
 
   <!-- CONTACT -->
+
   <section id="contact">
+
     <div class="section-header fade-up">
+
       <div class="section-tag">联系我们</div>
+
       <h2 class="section-title">开启合作<br><span class="gold">探索海洋无限可能</span></h2>
+
     </div>
+
     <div class="contact-wrapper fade-up">
+
       <div class="contact-info">
+
         <div class="info-item">
+
           <div class="info-icon">📞</div>
+
           <div>
+
             <div class="info-label">客服电话</div>
+
             <div class="info-val">18001633247</div>
+
             <div class="info-sub">工作日 09:00 - 18:00</div>
+
           </div>
+
         </div>
+
         <div class="info-item">
+
           <div class="info-icon">💬</div>
+
           <div>
+
             <div class="info-label">客服微信</div>
+
             <div class="info-val">18001633247</div>
+
             <div class="info-sub">扫码或搜索微信号添加</div>
+
           </div>
+
         </div>
+
         <div class="info-item">
+
           <div class="info-icon">📧</div>
+
           <div>
+
             <div class="info-label">商务邮箱</div>
+
             <div class="info-val" style="font-size:15px;">bd@cangyuanmarine.com</div>
+
             <div class="info-sub">24小时内回复</div>
+
           </div>
+
         </div>
+
         <div class="info-item">
+
           <div class="info-icon">📍</div>
+
           <div>
+
             <div class="info-label">公司地址</div>
+
             <div class="info-val" style="font-size:15px;">上海市 海洋科技园区</div>
+
             <div class="info-sub">欢迎预约到访参观实验室</div>
+
           </div>
+
         </div>
+
         <div style="margin-top:8px;">
+
           <div class="info-label" style="margin-bottom:12px;">微信扫码咨询</div>
+
           <div class="qr-card">
+
             <!-- Decorative QR visual -->
+
             <div style="width:120px;height:120px;background:#041a3f;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+
               <div style="font-size:36px;">💬</div>
+
               <div style="font-size:10px;color:#0dbdc6;letter-spacing:1px;text-align:center;">18001633247</div>
+
             </div>
+
             <div class="qr-label" style="color:#1a2d4a;">微信扫码 · 即刻咨询</div>
+
           </div>
+
         </div>
+
       </div>
+
       <div class="contact-form">
+
         <h3>发送合作需求</h3>
+
         <div class="form-group">
+
           <label>姓名 / 公司</label>
+
           <input type="text" placeholder="请输入您的姓名或公司名称">
+
         </div>
+
         <div class="form-group">
+
           <label>联系方式</label>
+
           <input type="text" placeholder="手机号 / 邮箱">
+
         </div>
+
         <div class="form-group">
+
           <label>业务类型</label>
+
           <select>
+
             <option>请选择您感兴趣的业务方向</option>
+
             <option>海洋天然产物AI筛选</option>
+
             <option>海洋噬菌体技术转化</option>
+
             <option>海洋专利技术转让</option>
+
             <option>海洋药物开发支持</option>
+
             <option>功能性原料供应</option>
+
             <option>定制化科研合作</option>
+
             <option>其他</option>
+
           </select>
+
         </div>
+
         <div class="form-group">
+
           <label>需求描述</label>
+
           <textarea placeholder="请简要描述您的技术需求或合作设想，我们将在24小时内与您联系…"></textarea>
+
         </div>
+
         <button class="form-submit" onclick="alert('感谢您的咨询！我们将尽快联系您，也可直接拨打 18001633247。')">
+
           提交需求 →
+
         </button>
+
       </div>
+
     </div>
+
   </section>
 
+
+
   <!-- FOOTER -->
+
   <footer>
+
     <div class="footer-grid">
+
       <div class="footer-brand">
+
         <div class="logo" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
+
           <div style="width:40px;height:40px;background:linear-gradient(135deg,#0dbdc6,#0f7cc6);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;">🌊</div>
+
           <div>
+
             <div style="font-size:18px;font-weight:700;letter-spacing:2px;">沧元海洋</div>
+
             <div style="font-size:10px;color:#0dbdc6;letter-spacing:3px;">CANGYUAN MARINE TECH</div>
+
           </div>
+
         </div>
+
         <p>以科学为锚，以创新为帆，将深海宝藏转化为产业价值，赋能蓝色经济高质量发展。</p>
+
       </div>
+
       <div class="footer-col">
+
         <h4>核心业务</h4>
+
         <ul>
+
           <li><a href="#services">AI天然产物筛选</a></li>
+
           <li><a href="#services">海洋噬菌体转化</a></li>
+
           <li><a href="#patents">专利技术转让</a></li>
+
           <li><a href="#services">海洋药物开发</a></li>
+
           <li><a href="#services">功能原料供应</a></li>
+
         </ul>
+
       </div>
+
       <div class="footer-col">
+
         <h4>关于我们</h4>
+
         <ul>
+
           <li><a href="#about">公司简介</a></li>
+
           <li><a href="#why">核心优势</a></li>
+
           <li><a href="#process">合作流程</a></li>
+
           <li><a href="#contact">加入我们</a></li>
+
         </ul>
+
       </div>
+
       <div class="footer-col">
+
         <h4>联系方式</h4>
+
         <ul>
+
           <li><a href="tel:18001633247">📞 18001633247</a></li>
+
           <li><a href="#">💬 微信：18001633247</a></li>
+
           <li><a href="#">📧 bd@cangyuanmarine.com</a></li>
+
           <li><a href="#contact">📍 上海市海洋科技园区</a></li>
+
         </ul>
+
       </div>
+
     </div>
+
     <div class="footer-bottom">
+
       <p>© 2024 沧元海洋科技有限公司  All Rights Reserved</p>
+
       <p class="footer-icp">沪ICP备XXXXXXXX号  &nbsp;|&nbsp;  沪公网安备 31XXXXXXXXXX 号</p>
+
     </div>
+
   </footer>
 
+
+
   <script>
-    // Floating particles
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 20; i++) {
-      const d = document.createElement('div');
-      d.className = 'particle';
-      const size = Math.random() * 6 + 3;
-      d.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${Math.random()*100}%;
-        animation-duration:${Math.random()*15+10}s;
-        animation-delay:${Math.random()*10}s;
-      `;
-      container.appendChild(d);
+
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMobileMenu() {
+      navToggle.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    }
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+      });
     }
 
+    // Floating particles
+
+    const container = document.getElementById('particles');
+
+    for (let i = 0; i < 20; i++) {
+
+      const d = document.createElement('div');
+
+      d.className = 'particle';
+
+      const size = Math.random() * 6 + 3;
+
+      d.style.cssText = `
+
+        width:${size}px; height:${size}px;
+
+        left:${Math.random()*100}%;
+
+        animation-duration:${Math.random()*15+10}s;
+
+        animation-delay:${Math.random()*10}s;
+
+      `;
+
+      container.appendChild(d);
+
+    }
+
+
+
     // Scroll fade-in
+
     const observer = new IntersectionObserver(
+
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+
       { threshold: 0.1 }
+
     );
+
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+
+
     // Nav scroll
+
     window.addEventListener('scroll', () => {
+
       const nav = document.querySelector('nav');
+
       nav.style.background = window.scrollY > 60
+
         ? 'rgba(4,26,63,0.98)'
+
         : 'rgba(4,26,63,0.95)';
+
     });
 
+
+
     // ═══════════════════════════════════════════════
+
     // 🔗 动态内容加载 — 从管理后台API读取内容
+
     // 如果API不可用，页面仍使用原有静态内容
+
     // ═══════════════════════════════════════════════
+
     (async function loadDynamicContent() {
+
       const API_BASE = window.location.origin;
 
+
+
       async function fetchAPI(path) {
+
         try {
+
           const res = await fetch(API_BASE + '/api' + path);
+
           if (!res.ok) throw new Error('API unavailable');
+
           const data = await res.json();
+
           return data.success ? data.data : null;
+
         } catch (e) {
+
           console.log('API 不可用，使用静态内容');
+
           return null;
+
         }
+
       }
+
+
 
       // ── 1. 公司信息 ──
+
       const companyInfo = await fetchAPI('/company-info');
+
       if (companyInfo) {
+
         // 首屏
+
         if (companyInfo.hero_title) {
+
           const h1 = document.querySelector('.hero h1');
+
           if (h1) h1.innerHTML = companyInfo.hero_title.replace(/\n/g,'<br>');
+
         }
+
         if (companyInfo.hero_subtitle) {
+
           const sub = document.querySelector('.hero-sub');
+
           if (sub) sub.innerHTML = companyInfo.hero_subtitle.replace(/\n/g,'<br>');
+
         }
+
+
 
         // 统计项
+
         const stats = document.querySelectorAll('.hero-stats .stat-card');
+
         const statKeys = ['hero_stat1_','hero_stat2_','hero_stat3_'];
+
         statKeys.forEach((key, i) => {
+
           if (stats[i]) {
+
             const label = companyInfo[key + 'label'];
+
             const value = companyInfo[key + 'value'];
+
             if (label) stats[i].querySelector('.stat-label').textContent = label;
+
             if (value) stats[i].querySelector('.stat-num').textContent = value;
+
           }
+
         });
 
+
+
         // 联系我们
+
         if (companyInfo.phone) {
+
           const phoneEls = document.querySelectorAll('.info-val');
+
           if (phoneEls[0]) phoneEls[0].textContent = companyInfo.phone;
+
           if (phoneEls[1]) phoneEls[1].textContent = companyInfo.phone;
+
         }
+
         if (companyInfo.email) {
+
           const emailEl = document.querySelectorAll('.info-val')[2];
+
           if (emailEl) emailEl.textContent = companyInfo.email;
+
         }
+
         if (companyInfo.address) {
+
           const addrEl = document.querySelectorAll('.info-val')[3];
+
           if (addrEl) addrEl.textContent = companyInfo.address;
+
         }
+
       }
+
+
 
       // ── 2. 服务项目 ──
+
       const services = await fetchAPI('/services');
+
       if (services && services.length > 0) {
+
         const servicesSection = document.querySelector('#services');
+
         if (servicesSection) {
+
           // 只取前6个或全部
+
           const svcList = services.slice(0, 6);
+
           let svcHTML = '';
+
           svcList.forEach((svc, i) => {
+
             const featuredClass = svc.is_featured ? ' featured' : '';
+
             const badge = svc.is_featured ? '<div class="badge-featured">明星业务</div>' : '';
+
             svcHTML += `
+
               <div class="service-card${featuredClass}">
+
                 ${badge}
+
                 <div class="service-icon">${svc.icon || '🧬'}</div>
+
                 <h3>${svc.title}</h3>
+
                 <p>${svc.description || ''}</p>
+
                 <div class="service-tags">
+
                   ${(svc.title === '海洋天然产物AI筛选' ? '<span class="stag">靶向筛选</span><span class="stag">ADMET预测</span><span class="stag">分子对接</span>' :
+
                      svc.title.includes('噬菌体') ? '<span class="stag">噬菌体疗法</span><span class="stag">水产防控</span>' :
+
                      '<span class="stag">技术转化</span><span class="stag">产业赋能</span>')}
+
                 </div>
+
               </div>`;
+
           });
+
+
 
           // 第一行最多3个
+
           const row1 = svcList.slice(0, 3);
+
           const row2 = svcList.slice(3, 6);
 
+
+
           let grid1HTML = '';
+
           row1.forEach((svc) => {
+
             const fc = svc.is_featured ? ' featured' : '';
+
             const bd = svc.is_featured ? '<div class="badge-featured">明星业务</div>' : '';
+
             grid1HTML += `
+
               <div class="service-card${fc}">
+
                 ${bd}
+
                 <div class="service-icon">${svc.icon || '🧬'}</div>
+
                 <h3>${svc.title}</h3>
+
                 <p>${svc.description || ''}</p>
+
                 <div class="service-tags">
+
                   <span class="stag">${svc.title.substring(0,8)}</span>
+
                 </div>
+
               </div>`;
+
           });
 
+
+
           // 替换第一行
+
           const firstGrid = servicesSection.querySelector('.services-grid');
+
           if (firstGrid && row1.length > 0) {
+
             // 如果包含service-card的子元素数量与API不符，重新渲染
+
             const existingCards = firstGrid.querySelectorAll('.service-card');
+
             if (existingCards.length !== row1.length) {
+
               // 重建整个服务区域
+
               const sectionHeaderHTML = servicesSection.querySelector('.section-header')?.outerHTML || '';
+
               servicesSection.innerHTML = sectionHeaderHTML;
 
+
+
               let allGridsHTML = '';
+
               // 第一行
+
               allGridsHTML += `<div class="services-grid fade-up">${grid1HTML}</div>`;
+
               // 如果有第二行
+
               if (row2.length > 0) {
+
                 let grid2HTML = '';
+
                 row2.forEach((svc) => {
+
                   const fc2 = svc.is_featured ? ' featured' : '';
+
                   const bd2 = svc.is_featured ? '<div class="badge-featured">明星业务</div>' : '';
+
                   grid2HTML += `
+
                     <div class="service-card${fc2}">
+
                       ${bd2}
+
                       <div class="service-icon">${svc.icon || '🧬'}</div>
+
                       <h3>${svc.title}</h3>
+
                       <p>${svc.description || ''}</p>
+
                       <div class="service-tags">
+
                         <span class="stag">${svc.title.substring(0,8)}</span>
+
                       </div>
+
                     </div>`;
+
                 });
+
                 allGridsHTML += `<div class="services-grid fade-up" style="margin-top:28px; grid-template-columns:repeat(${row2.length},1fr);">${grid2HTML}</div>`;
+
               }
+
               servicesSection.innerHTML += allGridsHTML;
+
             } else {
+
               // 更新现有卡片内容
+
               firstGrid.querySelectorAll('.service-card').forEach((card, i) => {
+
                 if (row1[i]) {
+
                   const svc = row1[i];
+
                   card.querySelector('h3').textContent = svc.title;
+
                   card.querySelector('p').textContent = svc.description || '';
+
                   card.querySelector('.service-icon').textContent = svc.icon || '🧬';
+
                   if (svc.is_featured) card.classList.add('featured');
+
                 }
+
               });
+
             }
+
           }
+
+
 
           // 重新绑定滚动动画
+
           document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
         }
+
       }
+
+
 
       // ── 3. 专利列表 ──
+
       const patents = await fetchAPI('/patents');
+
       if (patents && patents.length > 0) {
+
         const patentsSection = document.querySelector('#patents');
+
         if (patentsSection) {
+
           const patentsGrid = patentsSection.querySelector('.patents-grid');
+
           if (patentsGrid) {
+
             let patHTML = '';
+
             patents.slice(0, 6).forEach((pat, i) => {
+
               const num = String(i + 1).padStart(2, '0');
+
               patHTML += `
+
                 <div class="patent-card">
+
                   <div class="patent-num">${num}</div>
+
                   <div class="patent-info">
+
                     <h4>${pat.title}</h4>
+
                     <p>${pat.description || ''}</p>
+
                     <div class="meta">
+
                       <span class="meta-tag">${pat.patent_number || '发明专利'}</span>
+
                       <span class="meta-tag">${pat.application_field || '海洋科技'}</span>
+
                       <span class="meta-tag">可转让</span>
+
                     </div>
+
                   </div>
+
                 </div>`;
+
             });
+
             patentsGrid.innerHTML = patHTML;
+
             document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
           }
 
+
+
           // 更新专利数
+
           const patentTitle = patentsSection.querySelector('.section-title');
+
           if (patentTitle) {
+
             patentTitle.innerHTML = `${patents.length}+ 核心专利<br><span class="gold">覆盖海洋科技全领域</span>`;
+
           }
+
         }
+
       }
+
     })();
+
   </script>
+
 </body>
+
 </html>
+
