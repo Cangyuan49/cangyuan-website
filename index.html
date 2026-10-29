@@ -259,6 +259,50 @@
 
     }
 
+    /* ── HERO 装饰：海洋+科技元素 ── */
+
+    .hero-deco { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+
+    /* 水下光柱（丁达尔光束） */
+    .ray { position: absolute; top: -12%; height: 75%; background: linear-gradient(to bottom, rgba(13,189,198,0.10), rgba(13,189,198,0.02) 55%, transparent); transform: skewX(-12deg); filter: blur(8px); animation: raySway 10s ease-in-out infinite alternate; }
+    .ray.r1 { left: 16%; width: 130px; }
+    .ray.r2 { left: 33%; width: 70px; animation-delay: -3s; opacity: .8; }
+    .ray.r3 { left: 52%; width: 160px; animation-delay: -6s; }
+    .ray.r4 { left: 70%; width: 90px; animation-delay: -1.5s; opacity: .7; }
+    @keyframes raySway { from { transform: skewX(-15deg) translateX(-16px); opacity: .45; } to { transform: skewX(-8deg) translateX(16px); opacity: .9; } }
+
+    /* 上升气泡 */
+    .bubble { position: absolute; bottom: -50px; border-radius: 50%; border: 1px solid rgba(13,189,198,0.35); background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), rgba(13,189,198,0.05) 60%, transparent); animation: bubbleUp linear infinite; }
+    @keyframes bubbleUp {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      8% { opacity: .65; }
+      50% { transform: translateY(-46vh) translateX(18px); }
+      100% { transform: translateY(-92vh) translateX(-12px); opacity: 0; }
+    }
+
+    /* 声呐波纹 */
+    .sonar { position: absolute; width: 80px; height: 80px; border-radius: 50%; border: 1px solid rgba(13,189,198,0.32); animation: sonarPing 5.4s cubic-bezier(0,0.4,0.6,1) infinite; }
+    .sonar.s1 { right: 27%; top: 36%; }
+    .sonar.s2 { right: 27%; top: 36%; animation-delay: 1.8s; }
+    .sonar.s3 { right: 27%; top: 36%; animation-delay: 3.6s; }
+    @keyframes sonarPing { 0% { transform: scale(0.3); opacity: 0; } 12% { opacity: .55; } 100% { transform: scale(5.2); opacity: 0; } }
+
+    /* 分子网络（AI 筛选意象） */
+    .mol-net { position: absolute; right: 15%; top: 7%; width: 380px; opacity: .5; animation: netDrift 14s ease-in-out infinite alternate; }
+    @keyframes netDrift { from { transform: translateY(0); } to { transform: translateY(-22px); } }
+    .mol-net line { stroke: rgba(13,189,198,0.30); stroke-width: 1; }
+    .mol-net circle { fill: rgba(13,189,198,0.45); }
+    .mol-net circle.hub { fill: rgba(94,234,212,0.85); }
+
+    /* 闪烁微粒 */
+    .spark { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: rgba(94,234,212,0.65); box-shadow: 0 0 7px rgba(94,234,212,0.8); animation: sparkFloat 8s ease-in-out infinite alternate; }
+    @keyframes sparkFloat { from { transform: translateY(0); opacity: .15; } to { transform: translateY(-28px); opacity: .85; } }
+
+    @media (max-width: 900px) {
+      .mol-net, .ray { display: none; }
+      .sonar { right: 55%; top: 26%; }
+    }
+
     .hero-content { position: relative; z-index: 2; max-width: 700px; }
 
     .hero-badge {
@@ -1298,6 +1342,55 @@
   <section class="hero" id="home">
 
     <div class="particles" id="particles"></div>
+
+    <div class="hero-deco">
+
+      <!-- 水下光柱 -->
+      <div class="ray r1"></div>
+      <div class="ray r2"></div>
+      <div class="ray r3"></div>
+      <div class="ray r4"></div>
+
+      <!-- 分子网络（AI 筛选意象） -->
+      <svg class="mol-net" viewBox="0 0 380 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="60" x2="150" y2="30"/><line x1="150" y1="30" x2="240" y2="70"/>
+        <line x1="240" y1="70" x2="330" y2="40"/><line x1="60" y1="60" x2="120" y2="150"/>
+        <line x1="150" y1="30" x2="120" y2="150"/><line x1="120" y1="150" x2="220" y2="180"/>
+        <line x1="240" y1="70" x2="220" y2="180"/><line x1="220" y1="180" x2="320" y2="140"/>
+        <line x1="330" y1="40" x2="320" y2="140"/><line x1="120" y1="150" x2="80" y2="240"/>
+        <line x1="220" y1="180" x2="180" y2="260"/><line x1="320" y1="140" x2="350" y2="230"/>
+        <line x1="180" y1="260" x2="280" y2="250"/><line x1="280" y1="250" x2="320" y2="140"/>
+        <circle class="hub" cx="60" cy="60" r="5"/><circle class="hub" cx="150" cy="30" r="7"/>
+        <circle class="hub" cx="240" cy="70" r="5"/><circle class="hub" cx="330" cy="40" r="4"/>
+        <circle class="hub" cx="120" cy="150" r="8"/><circle class="hub" cx="220" cy="180" r="6"/>
+        <circle class="hub" cx="320" cy="140" r="5"/><circle class="hub" cx="80" cy="240" r="4"/>
+        <circle class="hub" cx="180" cy="260" r="6"/><circle class="hub" cx="280" cy="250" r="4"/>
+        <circle class="hub" cx="350" cy="230" r="5"/>
+      </svg>
+
+      <!-- 声呐波纹 -->
+      <div class="sonar s1"></div>
+      <div class="sonar s2"></div>
+      <div class="sonar s3"></div>
+
+      <!-- 上升气泡 -->
+      <div class="bubble" style="left:30%; width:14px; height:14px; animation-duration:11s"></div>
+      <div class="bubble" style="left:42%; width:8px; height:8px; animation-duration:14s; animation-delay:-4s"></div>
+      <div class="bubble" style="left:55%; width:18px; height:18px; animation-duration:12s; animation-delay:-7s"></div>
+      <div class="bubble" style="left:63%; width:10px; height:10px; animation-duration:16s; animation-delay:-2s"></div>
+      <div class="bubble" style="left:74%; width:6px; height:6px; animation-duration:10s; animation-delay:-8s"></div>
+      <div class="bubble" style="left:86%; width:12px; height:12px; animation-duration:13s; animation-delay:-5s"></div>
+      <div class="bubble" style="left:24%; width:7px; height:7px; animation-duration:15s; animation-delay:-9s"></div>
+
+      <!-- 闪烁微粒 -->
+      <div class="spark" style="left:36%; top:30%"></div>
+      <div class="spark" style="left:58%; top:22%; animation-delay:-3s"></div>
+      <div class="spark" style="left:70%; top:55%; animation-delay:-5s"></div>
+      <div class="spark" style="left:48%; top:64%; animation-delay:-1.5s"></div>
+      <div class="spark" style="left:88%; top:18%; animation-delay:-6s"></div>
+      <div class="spark" style="left:20%; top:48%; animation-delay:-2.5s"></div>
+
+    </div>
 
     <div class="hero-content">
 
